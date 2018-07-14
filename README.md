@@ -5,6 +5,12 @@ Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 [![StyleCI](https://styleci.io/repos/140902040/shield?branch=master)](https://styleci.io/repos/140902040)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d4e66f98ad0539e0b65d/maintainability)](https://codeclimate.com/github/bubbstore/iugu-php-sdk/maintainability)
 
+## Instalação via composer
+
+```bash
+$ composer require bubbstore/iugu-php-sdk
+```
+
 ## Serviços
 
 Este SDK suporta os seguintes serviços:
