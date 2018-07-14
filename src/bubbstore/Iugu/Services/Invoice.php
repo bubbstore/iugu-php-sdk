@@ -74,7 +74,7 @@ class Invoice extends BaseRequest implements InvoiceInterface
     /**
      * cancel
      *
-     * Exclui uma fatura
+     * Cancela uma fatura
      *
      * @param  int $id
      * @return array
