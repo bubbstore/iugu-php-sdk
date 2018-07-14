@@ -6,7 +6,6 @@ use bubbstore\Iugu\Contracts\InvoiceInterface;
 
 class Invoice extends BaseRequest implements InvoiceInterface
 {
-
     public function __construct($http, $iugu)
     {
         parent::__construct($http, $iugu);
