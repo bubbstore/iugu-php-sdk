@@ -3,9 +3,11 @@
 namespace bubbstore\Iugu;
 
 use bubbstore\Iugu\Contracts\CustomerInterface;
+use bubbstore\Iugu\Contracts\PaymentMethodInterface;
 use bubbstore\Iugu\Contracts\ChargeInterface;
 use bubbstore\Iugu\Contracts\InvoiceInterface;
 use bubbstore\Iugu\Services\Customer;
+use bubbstore\Iugu\Services\PaymentMethod;
 use bubbstore\Iugu\Services\Charge;
 use bubbstore\Iugu\Services\Invoice;
 use bubbstore\Iugu\Exceptions\IuguException;
@@ -21,6 +23,13 @@ class Iugu
      * @var \bubbstore\Iugu\Contracts\CustomerInterface
      */
     protected $customer;
+
+    /**
+     * Serviço de Método de Pagamento
+     *
+     * @var \bubbstore\Iugu\Contracts\PaymentMethodInterface
+     */
+    protected $paymentMethod;
 
     /**
      * Serviço de Cobrança
@@ -46,6 +55,7 @@ class Iugu
     public function __construct(
         $apiKey,
         CustomerInterface $customer = null,
+        PaymentMethodInterface $paymentMethod = null,
         ChargeInterface $charge = null,
         InvoiceInterface $invoice = null,
         ClientInterface $http = null
@@ -63,6 +73,7 @@ class Iugu
         ]);
 
         $this->customer = $customer ?: new Customer($this->http, $this);
+        $this->paymentMethod = $paymentMethod ?: new PaymentMethod($this->http, $this);
         $this->charge = $charge ?: new Charge($this->http, $this);
         $this->invoice = $invoice ?: new Invoice($this->http, $this);
     }
@@ -77,6 +88,18 @@ class Iugu
     public function customer()
     {
         return $this->customer;
+    }
+
+    /**
+     * paymentMethod
+     *
+     * Serviço de Método de Pagamento
+     *
+     * @return \bubbstore\Iugu\Services\PaymentMethod
+     */
+    public function paymentMethod()
+    {
+        return $this->paymentMethod;
     }
 
     /**

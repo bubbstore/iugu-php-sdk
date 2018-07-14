@@ -18,6 +18,7 @@ Este SDK suporta os seguintes serviços:
 - [Clientes](https://dev.iugu.com/reference#testinput-2)
 - [Cobrança direta](https://dev.iugu.com/reference#cobranca-direta)
 - [Faturas](https://dev.iugu.com/reference#criar-fatura)
+- [Métodos de pagamento](https://dev.iugu.com/reference#testinput-3)
 
 [Referência da API](https://dev.iugu.com/reference)
 
@@ -192,6 +193,40 @@ $iugu->invoice()->refund('ID_FATURA');
 
 ```php
 $iugu->invoice()->cancel('ID_FATURA');
+```
+
+## Métodos de pagamento
+
+#### Criar método de pagamento
+
+```php
+$payment = $iugu->paymentMethod()->create('ID_CLIENTE', [
+    'description' => 'Cartão de Crédito',
+    'token' => '123456',
+]);
+
+// Imprime o ID do pagamento
+echo $payment['id'];
+```
+
+#### Atualizar método de pagamento
+
+```php
+$iugu->paymentMethod()->update('ID_CLIENTE', 'ID_METODO_PAGAMENTO', [
+    'description' => 'Outra description',
+]);
+```
+
+#### Buscar método de pagamento
+
+```php
+$iugu->paymentMethod()->find('ID_CLIENTE', 'ID_METODO_PAGAMENTO');
+```
+
+#### Excluir método de pagamento
+
+```php
+$iugu->paymentMethod()->delete('ID_CLIENTE', 'ID_METODO_PAGAMENTO');
 ```
 
 ## Testando
