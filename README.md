@@ -2,6 +2,8 @@
 
 Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 
+[![StyleCI](https://styleci.io/repos/34916429/shield?branch=master)](https://styleci.io/repos/34916429)
+
 ## Testando
 
 ```bash

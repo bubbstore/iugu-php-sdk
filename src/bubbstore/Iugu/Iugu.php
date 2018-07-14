@@ -4,8 +4,10 @@ namespace bubbstore\Iugu;
 
 use bubbstore\Iugu\Contracts\CustomerInterface;
 use bubbstore\Iugu\Contracts\ChargeInterface;
+use bubbstore\Iugu\Contracts\InvoiceInterface;
 use bubbstore\Iugu\Services\Customer;
 use bubbstore\Iugu\Services\Charge;
+use bubbstore\Iugu\Services\Invoice;
 use bubbstore\Iugu\Exceptions\IuguException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Client as HttpClient;
@@ -28,6 +30,13 @@ class Iugu
     protected $charge;
 
     /**
+     * Serviço de Fatura
+     *
+     * @var \bubbstore\Iugu\Contracts\InvoiceInterface
+     */
+    protected $invoice;
+
+    /**
      * apiKey público
      *
      * @var string
@@ -38,6 +47,7 @@ class Iugu
         $apiKey,
         CustomerInterface $customer = null,
         ChargeInterface $charge = null,
+        InvoiceInterface $invoice = null,
         ClientInterface $http = null
     ) {
         if (!is_string($apiKey)) {
@@ -54,6 +64,7 @@ class Iugu
 
         $this->customer = $customer ?: new Customer($this->http, $this);
         $this->charge = $charge ?: new Charge($this->http, $this);
+        $this->invoice = $invoice ?: new Invoice($this->http, $this);
     }
 
     /**
@@ -78,5 +89,17 @@ class Iugu
     public function charge()
     {
         return $this->charge;
+    }
+
+    /**
+     * invoice
+     *
+     * Serviço de Fatura
+     *
+     * @return \bubbstore\Iugu\Services\Invoice
+     */
+    public function invoice()
+    {
+        return $this->invoice;
     }
 }
