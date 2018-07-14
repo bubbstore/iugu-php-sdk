@@ -37,7 +37,7 @@ class Customer extends BaseRequest implements CustomerInterface
      */
     public function update($id, array $params)
     {
-        $this->setParams($params)->sendApiRequest('PUT', 'customers/'.$id);
+        $this->setParams($params)->sendApiRequest('PUT', sprintf('customers/%s', $id));
 
         return $this->fetchResponse();
     }
@@ -52,7 +52,7 @@ class Customer extends BaseRequest implements CustomerInterface
      */
     public function find($id)
     {
-        $this->sendApiRequest('GET', 'customers/'.$id);
+        $this->sendApiRequest('GET', sprintf('customers/%s', $id));
 
         return $this->fetchResponse();
     }
@@ -67,7 +67,7 @@ class Customer extends BaseRequest implements CustomerInterface
      */
     public function delete($id)
     {
-        $this->sendApiRequest('DELETE', 'customers/'.$id);
+        $this->sendApiRequest('DELETE', sprintf('customers/%s', $id));
 
         return $this->fetchResponse();
     }
