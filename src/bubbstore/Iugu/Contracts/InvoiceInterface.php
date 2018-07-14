@@ -8,4 +8,5 @@ interface InvoiceInterface
     public function capture($id);
     public function find($id);
     public function refund($id);
+    public function cancel($id);
 }

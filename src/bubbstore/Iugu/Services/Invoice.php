@@ -59,7 +59,7 @@ class Invoice extends BaseRequest implements InvoiceInterface
     /**
      * refund
      *
-     * Exclui um cliente
+     * Exclui uma fatura
      *
      * @param  int $id
      * @return array
@@ -67,6 +67,21 @@ class Invoice extends BaseRequest implements InvoiceInterface
     public function refund($id)
     {
         $this->sendApiRequest('POST', sprintf('invoices/%s/refund', $id));
+
+        return $this->fetchResponse();
+    }
+
+    /**
+     * cancel
+     *
+     * Cancela uma fatura
+     *
+     * @param  int $id
+     * @return array
+     */
+    public function cancel($id)
+    {
+        $this->sendApiRequest('PUT', sprintf('invoices/%s/cancel', $id));
 
         return $this->fetchResponse();
     }

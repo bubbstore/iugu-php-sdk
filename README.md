@@ -188,6 +188,12 @@ $iugu->invoice()->find('ID_FATURA');
 $iugu->invoice()->refund('ID_FATURA');
 ```
 
+#### Cancelar fatura
+
+```php
+$iugu->invoice()->cancel('ID_FATURA');
+```
+
 ## Testando
 
 ```bash
