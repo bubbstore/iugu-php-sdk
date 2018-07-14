@@ -1,58 +1,6 @@
-# 
+# iugu-php-sdk
 
-Biblioteca que realiza integração com a API do [RDStation](http://www.rdstation.com)
-
-[![StyleCI](https://styleci.io/repos/127529310/shield?branch=master)](https://styleci.io/repos/127529310)
-
-## Instalação via composer
-
-```bash
-$ composer require bubbstore/rdstation-php-sdk
-```
-
-## Cadastrar um novo lead
-
-```php
-<?php
-
-use bubbstore\RDStation\RD;
-use bubbstore\RDStation\Exceptions\RDException;
-
-try {
-    $rd = new RD('TOKEN_PUBLICO');
-    $lead = $rd->lead()->create([
-        'email' => 'lucas@bubb.com.br',
-        'name' => 'Lucas Colette',
-        'cargo' => 'CEO',
-        'empresa' => 'bubbstore',
-        'tags' => 'a_nice_tag',
-        'campo_customizado_1' => 'valor customizado',
-        'campo_customizado_2' => 'valor customizado'
-    ]);
-
-    echo '<pre>' . var_dump($lead) . '</pre>';
-
-} catch (RDException $e) {
-    echo $e->getMessage();
-}
-```
-
-Resultado esperado:
-
-```
-[
-    'result' => 'success',
-    'lead' => [
-        'email' => 'lucas@bubb.com.br',
-        'name' => 'Lucas Colette',
-        'cargo' => 'CEO',
-        'empresa' => 'bubbstore',
-        'tags' => 'a_nice_tag',
-        'campo_customizado_1' => 'valor customizado',
-        'campo_customizado_2' => 'valor customizado'
-    ],
-]
-```
+Biblioteca que realiza integração com a API da [Iugu](http://www.iugu.com)
 
 ## Testando
 
