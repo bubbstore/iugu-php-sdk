@@ -6,7 +6,6 @@ use Exception;
 
 class IuguValidationException extends Exception
 {
-
     private $errors;
 
     public function __construct($message, $code, $errors = [])
