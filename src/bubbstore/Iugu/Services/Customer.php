@@ -6,7 +6,6 @@ use bubbstore\Iugu\Contracts\CustomerInterface;
 
 class Customer extends BaseRequest implements CustomerInterface
 {
-
     public function __construct($http, $iugu)
     {
         parent::__construct($http, $iugu);
